@@ -89,3 +89,158 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Hero Section Animations */
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(5deg) scale(1.02);
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+    transform: rotate(-5deg) scale(0.98);
+  }
+  75% {
+    border-radius: 60% 40% 60% 40% / 70% 30% 50% 60%;
+    transform: rotate(3deg) scale(1.01);
+  }
+}
+
+@keyframes morph-reverse {
+  0%, 100% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    transform: rotate(0deg);
+  }
+  50% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes drip-1 {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(30px) scaleY(1.3);
+    opacity: 0.7;
+  }
+}
+
+@keyframes drip-2 {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translateY(40px) scaleY(1.4);
+    opacity: 0.6;
+  }
+}
+
+@keyframes drip-3 {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.7;
+  }
+  70% {
+    transform: translateY(25px) scaleY(1.2);
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+}
+
+@keyframes spill-grow {
+  0%, 100% {
+    transform: scaleY(0.8) scaleX(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scaleY(1.2) scaleX(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes scroll-indicator {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+}
+
+.animate-morph {
+  animation: morph 15s ease-in-out infinite;
+}
+
+.animate-morph-reverse {
+  animation: morph-reverse 12s ease-in-out infinite;
+}
+
+.animate-drip-1 {
+  animation: drip-1 4s ease-in-out infinite;
+}
+
+.animate-drip-2 {
+  animation: drip-2 5s ease-in-out infinite 0.5s;
+}
+
+.animate-drip-3 {
+  animation: drip-3 4.5s ease-in-out infinite 1s;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+}
+
+.animate-spill-grow {
+  animation: spill-grow 3s ease-in-out infinite;
+}
+
+.animate-scroll-indicator {
+  animation: scroll-indicator 2s ease-in-out infinite;
+}
