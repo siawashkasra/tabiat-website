@@ -4,11 +4,29 @@ import Link from "next/link";
 import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const isRTL = locale === "fa" || locale === "ps";
 
   return (
-    <footer className="w-full py-16 bg-white dark:bg-[#0c1a11]">
-      <div className="flex justify-center">
+    <footer className="w-full py-16 bg-white dark:bg-[#0c1a11] relative overflow-hidden">
+      {/* Decorative tomato spill elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Top decorative blob */}
+        <div className={`absolute top-[-10%] w-[300px] h-[300px] ${isRTL ? 'right-[-8%]' : 'left-[-8%]'}`}>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#e63946]/5 via-[#c1121f]/3 to-transparent rounded-[60%_40%_30%_70%/60%_30%_70%_40%] animate-morph" />
+        </div>
+        
+        {/* Bottom accent */}
+        <div className={`absolute bottom-[10%] w-[200px] h-[200px] ${isRTL ? 'left-[-5%]' : 'right-[-5%]'}`}>
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#ff6b6b]/5 via-[#e63946]/3 to-transparent rounded-[40%_60%_70%_30%/40%_50%_60%_50%] animate-morph-reverse" />
+        </div>
+        
+        {/* Small floating dots */}
+        <div className={`absolute top-[30%] w-3 h-3 bg-[#e63946]/10 rounded-full animate-float-slow ${isRTL ? 'left-[20%]' : 'right-[20%]'}`} />
+        <div className={`absolute bottom-[40%] w-2 h-2 bg-[#c1121f]/10 rounded-full animate-pulse-slow ${isRTL ? 'right-[15%]' : 'left-[15%]'}`} />
+      </div>
+
+      <div className="flex justify-center relative z-10">
         <div className="flex flex-col max-w-[1280px] w-full px-6 lg:px-10">
           <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-24 mb-16">
             {/* Newsletter */}

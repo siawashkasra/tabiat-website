@@ -108,69 +108,68 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[90vh] px-6 lg:px-10">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-[90vh] px-4 sm:px-6 lg:px-10">
         <div className="flex flex-col max-w-[1280px] w-full">
           <div className={`flex flex-col items-center lg:items-start ${isRTL ? 'lg:items-end' : 'lg:items-start'}`}>
             {/* Text Content */}
-            <div className={`flex flex-col gap-8 lg:max-w-[55%] transition-all duration-1000 ${
+            <div className={`flex flex-col gap-6 lg:gap-8 lg:max-w-[60%] transition-all duration-1000 ${
               isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             } ${isRTL ? 'text-right' : 'text-left'}`}>
-              <div className={`flex flex-col gap-6 ${isRTL ? 'items-end' : 'items-start'}`}>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-[#e63946]/20 w-fit shadow-lg">
-                  <span className="w-2 h-2 rounded-full bg-[#e63946] animate-pulse"></span>
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#1A1A1A] dark:text-white">
+              <div className={`flex flex-col gap-4 sm:gap-6 ${isRTL ? 'items-end' : 'items-start'}`}>
+                <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-[#13ec5b]/20 w-fit shadow-lg">
+                  <span className="w-2 h-2 rounded-full bg-[#13ec5b] animate-pulse"></span>
+                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#1A1A1A] dark:text-white">
                     {t("hero.tagline")}
                   </span>
                 </div>
-                <h1 className="text-[#1A1A1A] dark:text-white text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tighter">
-                  {t("hero.title")}
-                  <br />
-                  <span className="relative inline-block">
-                    <span className="relative z-10 bg-gradient-to-r from-[#e63946] to-[#c1121f] bg-clip-text text-transparent">
+                <h1 className="text-[#1A1A1A] dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight">
+                  {t("hero.title")}{" "}
+                  <span className="relative inline">
+                    <span className="relative z-10 bg-gradient-to-r from-[#13ec5b] to-[#0fd650] bg-clip-text text-transparent">
                       {t("hero.titleHighlight")}
                     </span>
-                    <span className="absolute bottom-2 left-0 w-full h-4 bg-[#e63946]/20 -skew-x-3 -z-0" />
+                    <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 lg:h-4 bg-[#13ec5b]/20 -skew-x-3 -z-0" />
                   </span>
                 </h1>
-                <h2 className="text-[#1A1A1A]/70 dark:text-gray-300 text-lg md:text-xl font-medium leading-relaxed max-w-[500px]">
+                <p className="text-[#1A1A1A]/70 dark:text-gray-300 text-base sm:text-lg md:text-xl font-medium leading-relaxed max-w-[480px]">
                   {t("hero.description")}
-                </h2>
+                </p>
               </div>
-              <div className={`flex flex-wrap gap-4 ${isRTL ? 'justify-end' : 'justify-start'}`}>
+              <div className={`flex flex-wrap gap-3 sm:gap-4 ${isRTL ? 'justify-end' : 'justify-start'}`}>
                 <Link 
                   href="/products" 
-                  className="group relative flex min-w-[160px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-gradient-to-r from-[#e63946] to-[#c1121f] text-white text-base font-bold leading-normal tracking-wide overflow-hidden shadow-xl shadow-red-500/30 hover:shadow-red-500/50 transition-all duration-300 hover:scale-105"
+                  className="group relative flex min-w-[140px] sm:min-w-[160px] cursor-pointer items-center justify-center rounded-full h-12 sm:h-14 px-6 sm:px-8 bg-gradient-to-r from-[#13ec5b] to-[#0fd650] text-[#1A1A1A] text-sm sm:text-base font-bold leading-normal tracking-wide overflow-hidden shadow-xl shadow-green-500/30 hover:shadow-green-500/50 transition-all duration-300 hover:scale-105"
                 >
                   <span className="relative z-10">{t("hero.shopNow")}</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#c1121f] to-[#780000] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#0fd650] to-[#0bc445] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </Link>
                 <Link 
                   href="/about" 
-                  className="flex min-w-[160px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-white/80 dark:bg-white/10 backdrop-blur-sm border-2 border-[#1A1A1A]/10 dark:border-white/20 text-[#1A1A1A] dark:text-white text-base font-bold leading-normal tracking-wide hover:bg-white dark:hover:bg-white/20 hover:border-[#e63946]/30 transition-all duration-300 hover:scale-105 shadow-lg"
+                  className="flex min-w-[140px] sm:min-w-[160px] cursor-pointer items-center justify-center rounded-full h-12 sm:h-14 px-6 sm:px-8 bg-white/80 dark:bg-white/10 backdrop-blur-sm border-2 border-[#1A1A1A]/10 dark:border-white/20 text-[#1A1A1A] dark:text-white text-sm sm:text-base font-bold leading-normal tracking-wide hover:bg-white dark:hover:bg-white/20 hover:border-[#13ec5b]/30 transition-all duration-300 hover:scale-105 shadow-lg"
                 >
                   {t("hero.ourStory")}
                 </Link>
               </div>
 
               {/* Feature badges */}
-              <div className={`flex flex-wrap gap-4 mt-4 ${isRTL ? 'justify-end' : 'justify-start'}`}>
-                <div className={`flex items-center gap-2 bg-white/60 dark:bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm transition-all duration-1000 delay-[1500ms] ${
+              <div className={`flex flex-wrap gap-2 sm:gap-3 mt-2 sm:mt-4 ${isRTL ? 'justify-end' : 'justify-start'}`}>
+                <div className={`flex items-center gap-1.5 sm:gap-2 bg-white/60 dark:bg-white/5 backdrop-blur-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-sm transition-all duration-1000 delay-[1500ms] ${
                   isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}>
-                  <span className="text-xl">🍅</span>
-                  <span className="text-sm font-semibold text-[#1A1A1A] dark:text-white">100% Organic</span>
+                  <span className="text-base sm:text-xl">🍅</span>
+                  <span className="text-xs sm:text-sm font-semibold text-[#1A1A1A] dark:text-white">100% Organic</span>
                 </div>
-                <div className={`flex items-center gap-2 bg-white/60 dark:bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm transition-all duration-1000 delay-[1700ms] ${
+                <div className={`flex items-center gap-1.5 sm:gap-2 bg-white/60 dark:bg-white/5 backdrop-blur-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-sm transition-all duration-1000 delay-[1700ms] ${
                   isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}>
-                  <span className="text-xl">⭐</span>
-                  <span className="text-sm font-semibold text-[#1A1A1A] dark:text-white">Premium Quality</span>
+                  <span className="text-base sm:text-xl">⭐</span>
+                  <span className="text-xs sm:text-sm font-semibold text-[#1A1A1A] dark:text-white">Premium Quality</span>
                 </div>
-                <div className={`flex items-center gap-2 bg-white/60 dark:bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm transition-all duration-1000 delay-[1900ms] ${
+                <div className={`flex items-center gap-1.5 sm:gap-2 bg-white/60 dark:bg-white/5 backdrop-blur-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-sm transition-all duration-1000 delay-[1900ms] ${
                   isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}>
-                  <span className="text-xl">🌿</span>
-                  <span className="text-sm font-semibold text-[#1A1A1A] dark:text-white">Farm Fresh</span>
+                  <span className="text-base sm:text-xl">🌿</span>
+                  <span className="text-xs sm:text-sm font-semibold text-[#1A1A1A] dark:text-white">Farm Fresh</span>
                 </div>
               </div>
             </div>

@@ -2,10 +2,18 @@
 
 import Link from "next/link";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { useLanguage } from "../i18n/LanguageContext";
+import { useEffect, useState } from "react";
 
 export default function AboutPage() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const isRTL = locale === "fa" || locale === "ps";
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   const stats = [
     { value: "50+", label: t("about.stats.years") },
@@ -33,13 +41,41 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col bg-[#f6f8f6] dark:bg-[#102216] text-[#111813] dark:text-white">
+    <div className="relative flex min-h-screen w-full flex-col bg-[#f6f8f6] dark:bg-[#102216] text-[#111813] dark:text-white overflow-hidden">
       <Header />
 
       <div className="flex flex-col items-center w-full">
         {/* Hero Section */}
-        <section className="w-full max-w-[1280px] px-4 md:px-10 py-16 md:py-32 flex flex-col items-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
+        <section className="w-full max-w-[1280px] px-4 md:px-10 py-16 md:py-32 flex flex-col items-center relative">
+          {/* Decorative tomato spill elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Large morphing blob */}
+            <div className={`absolute top-[10%] w-[500px] h-[500px] transition-all duration-[2000ms] ${isRTL ? 'left-[-15%]' : 'right-[-15%]'} ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#e63946]/15 via-[#c1121f]/10 to-transparent rounded-[60%_40%_30%_70%/60%_30%_70%_40%] animate-morph" />
+              <div className="absolute inset-[20%] bg-gradient-to-br from-[#ff6b6b]/10 via-[#e63946]/5 to-transparent rounded-[40%_60%_70%_30%/40%_50%_60%_50%] animate-morph-reverse" />
+            </div>
+            
+            {/* Floating tomato */}
+            <div className={`absolute top-[25%] transition-all duration-[1500ms] delay-500 ${isRTL ? 'right-[5%]' : 'left-[5%]'} ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+              <div className="w-16 h-16 bg-gradient-to-br from-[#ff6b6b]/30 to-[#c1121f]/20 rounded-full animate-float-slow shadow-lg shadow-red-500/10">
+                <div className="absolute top-1 left-1/2 -translate-x-1/2 w-3 h-2 bg-[#2d6a4f]/40 rounded-t-full" />
+              </div>
+            </div>
+            
+            {/* Dripping effects */}
+            <div className={`absolute top-[40%] transition-all duration-[2000ms] delay-700 ${isRTL ? 'left-[8%]' : 'right-[8%]'} ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+              <div className="w-8 h-16 bg-gradient-to-b from-[#e63946]/20 to-[#c1121f]/10 rounded-b-full animate-drip-1" />
+            </div>
+            <div className={`absolute top-[50%] transition-all duration-[2200ms] delay-900 ${isRTL ? 'left-[15%]' : 'right-[15%]'} ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+              <div className="w-5 h-10 bg-gradient-to-b from-[#ff6b6b]/15 to-[#e63946]/10 rounded-b-full animate-drip-2" />
+            </div>
+            
+            {/* Splatter dots */}
+            <div className={`absolute top-[60%] w-5 h-5 bg-[#e63946]/20 rounded-full transition-all duration-1000 delay-[1000ms] ${isRTL ? 'right-[12%]' : 'left-[12%]'} ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`} />
+            <div className={`absolute top-[70%] w-3 h-3 bg-[#c1121f]/15 rounded-full transition-all duration-1000 delay-[1200ms] ${isRTL ? 'left-[10%]' : 'right-[10%]'} ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`} />
+            <div className={`absolute bottom-[20%] w-4 h-4 bg-[#ff6b6b]/15 rounded-full animate-pulse-slow ${isRTL ? 'right-[20%]' : 'left-[20%]'}`} />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full relative z-10">
             {/* Text Content */}
             <div className="flex flex-col gap-6 order-2 md:order-1">
               <span className="inline-block w-fit px-3 py-1 rounded-full bg-[#13ec5b]/10 text-[#13ec5b] text-xs font-bold uppercase tracking-wider">
@@ -91,8 +127,16 @@ export default function AboutPage() {
         </section>
 
         {/* Features Section */}
-        <section className="w-full max-w-[1080px] px-4 md:px-10 py-24 md:py-32">
-          <div className="flex flex-col gap-16">
+        <section className="w-full max-w-[1080px] px-4 md:px-10 py-24 md:py-32 relative">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className={`absolute top-[20%] w-[250px] h-[250px] ${isRTL ? 'right-[-10%]' : 'left-[-10%]'}`}>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#e63946]/8 via-[#c1121f]/5 to-transparent rounded-[60%_40%_30%_70%/60%_30%_70%_40%] animate-morph" />
+            </div>
+            <div className={`absolute bottom-[10%] w-6 h-6 bg-[#e63946]/15 rounded-full animate-float ${isRTL ? 'left-[15%]' : 'right-[15%]'}`} />
+          </div>
+          
+          <div className="flex flex-col gap-16 relative z-10">
             <div className="flex flex-col items-center text-center gap-6 max-w-[720px] mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#111813] dark:text-white">
                 {t("about.pillars.title")}
@@ -102,13 +146,13 @@ export default function AboutPage() {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="flex flex-col gap-6 p-8 rounded-2xl bg-white dark:bg-white/5 border border-[#dbe6df] dark:border-white/10 hover:border-[#13ec5b]/50 dark:hover:border-[#13ec5b]/50 transition-colors group"
+                  className="flex flex-col gap-6 p-8 rounded-2xl bg-white dark:bg-white/5 border border-[#dbe6df] dark:border-white/10 hover:border-[#13ec5b]/50 dark:hover:border-[#13ec5b]/50 transition-all duration-300 group hover:shadow-xl hover:shadow-green-500/10"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#13ec5b]/20 flex items-center justify-center text-[#13ec5b] group-hover:bg-[#13ec5b] group-hover:text-[#111813] transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#13ec5b]/20 to-[#0fd650]/10 flex items-center justify-center text-[#13ec5b] group-hover:from-[#13ec5b] group-hover:to-[#0fd650] group-hover:text-white transition-all duration-300">
                     <span className="material-symbols-outlined text-3xl">{feature.icon}</span>
                   </div>
                   <div className="flex flex-col gap-3">
-                    <h3 className="text-xl font-bold dark:text-white">{feature.title}</h3>
+                    <h3 className="text-xl font-bold dark:text-white group-hover:text-[#13ec5b] transition-colors">{feature.title}</h3>
                     <p className="text-[#61896f] dark:text-gray-400 leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
@@ -134,66 +178,9 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-
-        {/* Footer CTA */}
-        <footer className="w-full bg-[#111813] text-white pt-20 pb-10 px-4 md:px-10 rounded-t-[3rem]">
-          <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
-            {/* CTA Section */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 border-b border-white/10 pb-16">
-              <div className="flex flex-col gap-4 max-w-xl">
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter">{t("about.cta.title")}</h2>
-                <p className="text-gray-400 text-lg">{t("about.cta.description")}</p>
-              </div>
-              <Link
-                href="/products"
-                className="h-16 px-10 rounded-full bg-[#13ec5b] text-[#111813] text-lg font-bold hover:scale-105 transition-transform flex items-center gap-2"
-              >
-                {t("about.cta.button")}
-                <span className="material-symbols-outlined rtl:rotate-180">arrow_forward</span>
-              </Link>
-            </div>
-
-            {/* Footer Links */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-2 text-[#13ec5b] mb-2">
-                  <span className="material-symbols-outlined">eco</span>
-                  <span className="font-bold uppercase">{t("site.name")}</span>
-                </div>
-                <p className="text-sm text-gray-500">{t("hero.description")}</p>
-              </div>
-              <div className="flex flex-col gap-3">
-                <h4 className="font-bold text-lg mb-1">{t("footer.shop")}</h4>
-                <Link href="/products" className="text-gray-400 hover:text-[#13ec5b] transition-colors">{t("footer.vegetables")}</Link>
-                <Link href="/products" className="text-gray-400 hover:text-[#13ec5b] transition-colors">{t("footer.legumes")}</Link>
-                <Link href="/products" className="text-gray-400 hover:text-[#13ec5b] transition-colors">{t("footer.fish")}</Link>
-              </div>
-              <div className="flex flex-col gap-3">
-                <h4 className="font-bold text-lg mb-1">{t("footer.company")}</h4>
-                <Link href="/about" className="text-gray-400 hover:text-[#13ec5b] transition-colors">{t("footer.ourStory")}</Link>
-                <Link href="#" className="text-gray-400 hover:text-[#13ec5b] transition-colors">{t("footer.sustainability")}</Link>
-                <Link href="#" className="text-gray-400 hover:text-[#13ec5b] transition-colors">{t("footer.careers")}</Link>
-                <Link href="/contact" className="text-gray-400 hover:text-[#13ec5b] transition-colors">{t("footer.contact")}</Link>
-              </div>
-              <div className="flex flex-col gap-3">
-                <h4 className="font-bold text-lg mb-1">{t("footer.social")}</h4>
-                <div className="flex gap-4">
-                  <Link href="#" className="text-white hover:text-[#13ec5b] transition-colors">
-                    <span className="material-symbols-outlined">public</span>
-                  </Link>
-                  <Link href="#" className="text-white hover:text-[#13ec5b] transition-colors">
-                    <span className="material-symbols-outlined">photo_camera</span>
-                  </Link>
-                  <Link href="#" className="text-white hover:text-[#13ec5b] transition-colors">
-                    <span className="material-symbols-outlined">alternate_email</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="text-center text-xs text-gray-600 pt-10">{t("footer.copyright")}</div>
-          </div>
-        </footer>
       </div>
+
+      <Footer />
     </div>
   );
 }

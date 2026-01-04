@@ -1,18 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useLanguage } from "../i18n/LanguageContext";
 
 export default function ContactPage() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const isRTL = locale === "fa" || locale === "ps";
+  const [isLoaded, setIsLoaded] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,10 +30,44 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col bg-[#f6f8f6] dark:bg-[#102216] text-[#1A1A1A] dark:text-gray-100">
+    <div className="relative flex min-h-screen w-full flex-col bg-[#f6f8f6] dark:bg-[#102216] text-[#1A1A1A] dark:text-gray-100 overflow-hidden">
       <Header />
 
-      <main className="flex-grow w-full max-w-[1440px] mx-auto px-6 lg:px-12 py-12 lg:py-20">
+      {/* Decorative tomato spill elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Large morphing blob */}
+        <div className={`absolute top-[5%] w-[600px] h-[600px] transition-all duration-[2000ms] ${isRTL ? 'left-[-20%]' : 'right-[-20%]'} ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#e63946]/12 via-[#c1121f]/8 to-transparent rounded-[60%_40%_30%_70%/60%_30%_70%_40%] animate-morph" />
+          <div className="absolute inset-[15%] bg-gradient-to-br from-[#ff6b6b]/8 via-[#e63946]/5 to-transparent rounded-[40%_60%_70%_30%/40%_50%_60%_50%] animate-morph-reverse" />
+        </div>
+        
+        {/* Floating tomato */}
+        <div className={`absolute top-[20%] transition-all duration-[1500ms] delay-300 ${isRTL ? 'right-[8%]' : 'left-[8%]'} ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+          <div className="w-14 h-14 bg-gradient-to-br from-[#ff6b6b]/25 to-[#c1121f]/15 rounded-full animate-float-slow shadow-lg shadow-red-500/10">
+            <div className="absolute top-1 left-1/2 -translate-x-1/2 w-3 h-2 bg-[#2d6a4f]/30 rounded-t-full" />
+          </div>
+        </div>
+        
+        {/* Dripping effects */}
+        <div className={`absolute top-[35%] transition-all duration-[2000ms] delay-500 ${isRTL ? 'left-[5%]' : 'right-[5%]'} ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+          <div className="w-6 h-14 bg-gradient-to-b from-[#e63946]/15 to-[#c1121f]/8 rounded-b-full animate-drip-1" />
+        </div>
+        <div className={`absolute top-[45%] transition-all duration-[2200ms] delay-700 ${isRTL ? 'left-[12%]' : 'right-[12%]'} ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+          <div className="w-4 h-10 bg-gradient-to-b from-[#ff6b6b]/12 to-[#e63946]/6 rounded-b-full animate-drip-2" />
+        </div>
+        
+        {/* Splatter dots */}
+        <div className={`absolute top-[55%] w-5 h-5 bg-[#e63946]/15 rounded-full transition-all duration-1000 delay-[800ms] ${isRTL ? 'right-[15%]' : 'left-[15%]'} ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`} />
+        <div className={`absolute top-[65%] w-3 h-3 bg-[#c1121f]/12 rounded-full transition-all duration-1000 delay-[1000ms] ${isRTL ? 'left-[8%]' : 'right-[8%]'} ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`} />
+        <div className={`absolute bottom-[25%] w-4 h-4 bg-[#ff6b6b]/12 rounded-full animate-pulse-slow ${isRTL ? 'right-[20%]' : 'left-[20%]'}`} />
+        
+        {/* Bottom blob */}
+        <div className={`absolute bottom-[10%] w-[300px] h-[300px] ${isRTL ? 'right-[-8%]' : 'left-[-8%]'}`}>
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#ff6b6b]/8 via-[#e63946]/5 to-transparent rounded-[40%_60%_70%_30%/40%_50%_60%_50%] animate-morph-reverse" />
+        </div>
+      </div>
+
+      <main className="flex-grow w-full max-w-[1440px] mx-auto px-6 lg:px-12 py-12 lg:py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
           {/* Left Column: Contact Form */}
           <div className="lg:col-span-7 flex flex-col gap-8">

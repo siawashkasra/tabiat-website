@@ -21,13 +21,19 @@ export default function ProductCard({
     <div className={`flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 lg:gap-24`}>
       {/* Image */}
       <div className="w-full lg:w-1/2 relative group">
-        <div className="aspect-square bg-white dark:bg-white/5 rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-white/5 p-12 flex items-center justify-center transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-[#13ec5b]/10">
+        <div className="aspect-square bg-white dark:bg-white/5 rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-white/5 p-12 flex items-center justify-center transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-[#e63946]/10">
           <div
             className="w-full h-full bg-contain bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-110"
             style={{ backgroundImage: `url("${imageUrl}")` }}
           ></div>
         </div>
-        <div className={`absolute -z-10 ${reverse ? '-top-6 -right-6' : '-bottom-6 -left-6'} w-full h-full bg-[#13ec5b]/10 rounded-3xl`}></div>
+        {/* Animated background accent */}
+        <div className={`absolute -z-10 ${reverse ? '-top-6 -right-6' : '-bottom-6 -left-6'} w-full h-full bg-gradient-to-br from-[#e63946]/15 via-[#c1121f]/10 to-[#13ec5b]/10 rounded-3xl animate-morph`}></div>
+        
+        {/* Floating tomato accent */}
+        <div className={`absolute ${reverse ? 'top-4 left-4' : 'bottom-4 right-4'} w-8 h-8 bg-gradient-to-br from-[#ff6b6b]/30 to-[#c1121f]/20 rounded-full animate-float-slow opacity-0 group-hover:opacity-100 transition-opacity duration-500`}>
+          <div className="absolute top-0.5 left-1/2 -translate-x-1/2 w-2 h-1.5 bg-[#2d6a4f]/40 rounded-t-full" />
+        </div>
       </div>
 
       {/* Content */}
@@ -47,7 +53,7 @@ export default function ProductCard({
               </div>
             ))}
           </div>
-          <button className="w-fit mt-4 px-8 py-3 bg-[#1A1A1A] dark:bg-white text-white dark:text-[#1A1A1A] font-bold rounded-full hover:bg-[#13ec5b] hover:text-[#1A1A1A] transition-colors duration-300">
+          <button className="w-fit mt-4 px-8 py-3 bg-gradient-to-r from-[#13ec5b] to-[#0fd650] text-[#1A1A1A] font-bold rounded-full hover:from-[#0fd650] hover:to-[#0bc445] hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 hover:scale-105">
             {buttonText}
           </button>
         </div>

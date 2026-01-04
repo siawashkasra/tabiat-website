@@ -8,20 +8,21 @@ interface LanguageContextType {
   setLocale: (locale: Locale) => void;
   t: (key: string) => string;
   dir: "ltr" | "rtl";
+  isReady: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("en");
-  const [mounted, setMounted] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const savedLocale = localStorage.getItem("locale") as Locale;
     if (savedLocale && locales.some((l) => l.code === savedLocale)) {
       setLocaleState(savedLocale);
     }
+    setIsReady(true);
   }, []);
 
   const setLocale = (newLocale: Locale) => {
@@ -30,7 +31,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   const t = (key: string): string => {
-    return translations[locale][key] || translations.en[key] || key;
+    return translations[locale]?.[key] || translations.en[key] || key;
   };
 
   const currentLocale = locales.find((l) => l.code === locale);
@@ -38,14 +39,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   // Update document direction
   useEffect(() => {
-    if (mounted) {
+    if (isReady) {
       document.documentElement.dir = dir;
       document.documentElement.lang = locale;
     }
-  }, [dir, locale, mounted]);
+  }, [dir, locale, isReady]);
 
   return (
-    <LanguageContext.Provider value={{ locale, setLocale, t, dir }}>
+    <LanguageContext.Provider value={{ locale, setLocale, t, dir, isReady }}>
       {children}
     </LanguageContext.Provider>
   );

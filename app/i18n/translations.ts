@@ -374,11 +374,11 @@ export const translations: Record<Locale, Record<string, string>> = {
     "nav.viewProducts": "View Products",
     
     // Hero Section
-    "hero.tagline": "Farm to Pantry",
-    "hero.title": "Taste the Difference of",
-    "hero.titleHighlight": "Canned Perfection",
+    "hero.tagline": "Farm to Table",
+    "hero.title": "Taste the Freshness of",
+    "hero.titleHighlight": "Natural Preserves",
     "hero.description": "Discover our curated collection of premium canned goods, sourced from sustainable farms and crafted with care.",
-    "hero.shopNow": "Shop Now",
+    "hero.shopNow": "Explore Products",
     "hero.ourStory": "Our Story",
     
     // Products Section
@@ -387,10 +387,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     "products.ourCollection": "Our Curated Collection",
     "products.collectionDescription": "Every can tells a story of sustainable farming, meticulous selection, and perfect preservation.",
     "products.viewCatalog": "View Full Catalog",
-    "products.shopChickpeas": "Shop Chickpeas",
-    "products.shopTomatoes": "Shop Tomatoes",
-    "products.shopTuna": "Shop Tuna",
-    "products.shopCorn": "Shop Corn",
+    "products.shopChickpeas": "View Chickpeas",
+    "products.shopTomatoes": "View Tomatoes",
+    "products.shopTuna": "View Tuna",
+    "products.shopCorn": "View Corn",
     "products.searchPlaceholder": "Search for heirloom tomatoes, sardines, spices...",
     "products.sortBy": "Sort by:",
     "products.featured": "Featured",
@@ -402,7 +402,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     "products.sets": "Sets",
     
     // Product Detail
-    "product.shop": "Shop",
+    "product.shop": "Products",
+    "product.features": "Features",
     "product.reviews": "Reviews",
     "product.perUnit": "/ per unit",
     "product.addToCart": "Add to Cart",
@@ -474,7 +475,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     "footer.newsletter.description": "Receive exclusive recipes, early access to new harvests, and sustainable living tips.",
     "footer.newsletter.placeholder": "Email address",
     "footer.newsletter.subscribe": "Subscribe",
-    "footer.shop": "Shop",
+    "footer.shop": "Products",
     "footer.allProducts": "All Products",
     "footer.vegetables": "Vegetables",
     "footer.legumes": "Legumes",
@@ -500,11 +501,11 @@ export const translations: Record<Locale, Record<string, string>> = {
     "nav.viewProducts": "مشاهده محصولات",
     
     // Hero Section
-    "hero.tagline": "از مزرعه تا آشپزخانه",
-    "hero.title": "تفاوت را در",
-    "hero.titleHighlight": "کنسرو عالی بچشید",
+    "hero.tagline": "از مزرعه تا سفره",
+    "hero.title": "طعم تازگی را بچشید",
+    "hero.titleHighlight": "کنسرو طبیعی",
     "hero.description": "مجموعه منتخب ما از کنسروهای ممتاز را کشف کنید که از مزارع پایدار تهیه و با دقت ساخته شده‌اند.",
-    "hero.shopNow": "خرید کنید",
+    "hero.shopNow": "محصولات را ببینید",
     "hero.ourStory": "داستان ما",
     
     // Products Section
@@ -513,10 +514,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     "products.ourCollection": "مجموعه منتخب ما",
     "products.collectionDescription": "هر قوطی داستانی از کشاورزی پایدار، انتخاب دقیق و نگهداری کامل را روایت می‌کند.",
     "products.viewCatalog": "مشاهده کاتالوگ کامل",
-    "products.shopChickpeas": "خرید نخود",
-    "products.shopTomatoes": "خرید گوجه",
-    "products.shopTuna": "خرید تن ماهی",
-    "products.shopCorn": "خرید ذرت",
+    "products.shopChickpeas": "مشاهده نخود",
+    "products.shopTomatoes": "مشاهده گوجه",
+    "products.shopTuna": "مشاهده تن ماهی",
+    "products.shopCorn": "مشاهده ذرت",
     "products.searchPlaceholder": "جستجوی گوجه فرنگی، ماهی، ادویه‌جات...",
     "products.sortBy": "مرتب‌سازی:",
     "products.featured": "ویژه",
@@ -528,7 +529,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     "products.sets": "ست‌ها",
     
     // Product Detail
-    "product.shop": "فروشگاه",
+    "product.shop": "محصولات",
+    "product.features": "ویژگی‌ها",
     "product.reviews": "نظرات",
     "product.perUnit": "/ هر واحد",
     "product.addToCart": "افزودن به سبد",
@@ -600,7 +602,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     "footer.newsletter.description": "دستورالعمل‌های انحصاری، دسترسی زودهنگام به محصولات جدید و نکات زندگی پایدار دریافت کنید.",
     "footer.newsletter.placeholder": "آدرس ایمیل",
     "footer.newsletter.subscribe": "اشتراک",
-    "footer.shop": "فروشگاه",
+    "footer.shop": "محصولات",
     "footer.allProducts": "همه محصولات",
     "footer.vegetables": "سبزیجات",
     "footer.legumes": "حبوبات",
@@ -626,11 +628,11 @@ export const translations: Record<Locale, Record<string, string>> = {
     "nav.viewProducts": "محصولات وګورئ",
     
     // Hero Section
-    "hero.tagline": "له پټي څخه تر پخلنځي",
-    "hero.title": "د توپیر خوند واخلئ",
-    "hero.titleHighlight": "غوره کنسرو",
+    "hero.tagline": "له پټي تر سفرې",
+    "hero.title": "د تازګۍ خوند واخلئ",
+    "hero.titleHighlight": "طبیعي کنسرو",
     "hero.description": "زموږ د غوره کنسرو شویو توکو ټولګه وپلټئ چې له پایدارو بزګرانو څخه اخیستل شوي او په پاملرنې سره جوړ شوي.",
-    "hero.shopNow": "اوس پیرود وکړئ",
+    "hero.shopNow": "محصولات وګورئ",
     "hero.ourStory": "زموږ کیسه",
     
     // Products Section
@@ -639,10 +641,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     "products.ourCollection": "زموږ غوره ټولګه",
     "products.collectionDescription": "هره قوطۍ د پایدارې کرنې، دقیق انتخاب او بشپړ ساتنې کیسه بیانوي.",
     "products.viewCatalog": "بشپړ کتالوګ وګورئ",
-    "products.shopChickpeas": "نخود واخلئ",
-    "products.shopTomatoes": "رومیان واخلئ",
-    "products.shopTuna": "ټونا واخلئ",
-    "products.shopCorn": "جوار واخلئ",
+    "products.shopChickpeas": "نخود وګورئ",
+    "products.shopTomatoes": "رومیان وګورئ",
+    "products.shopTuna": "ټونا وګورئ",
+    "products.shopCorn": "جوار وګورئ",
     "products.searchPlaceholder": "د رومیانو، کبانو، مصالحو لټون...",
     "products.sortBy": "ترتیب:",
     "products.featured": "ځانګړي",
@@ -654,7 +656,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     "products.sets": "سیټونه",
     
     // Product Detail
-    "product.shop": "پلورنځی",
+    "product.shop": "محصولات",
+    "product.features": "ځانګړتیاوې",
     "product.reviews": "نظرونه",
     "product.perUnit": "/ هر یو",
     "product.addToCart": "کارټ ته اضافه کړئ",
@@ -726,7 +729,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     "footer.newsletter.description": "ځانګړي ترکیبونه، نویو محصولاتو ته لومړنۍ لاسرسی او پایدار ژوند لارښوونې ترلاسه کړئ.",
     "footer.newsletter.placeholder": "بریښنالیک پته",
     "footer.newsletter.subscribe": "ګډون",
-    "footer.shop": "پلورنځی",
+    "footer.shop": "محصولات",
     "footer.allProducts": "ټول محصولات",
     "footer.vegetables": "سبزیجات",
     "footer.legumes": "حبوبات",

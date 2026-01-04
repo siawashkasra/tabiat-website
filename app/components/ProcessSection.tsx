@@ -3,7 +3,8 @@
 import { useLanguage } from "../i18n/LanguageContext";
 
 export default function ProcessSection() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const isRTL = locale === "fa" || locale === "ps";
 
   const steps = [
     {
@@ -31,7 +32,30 @@ export default function ProcessSection() {
 
   return (
     <section className="w-full py-24 bg-[#f6f8f6] dark:bg-[#102216] overflow-hidden relative border-t border-gray-100 dark:border-white/5">
-      <div className="flex justify-center">
+      {/* Decorative tomato spill elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Large morphing blob */}
+        <div className={`absolute top-[10%] w-[400px] h-[400px] ${isRTL ? 'left-[-10%]' : 'right-[-10%]'}`}>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#e63946]/8 via-[#c1121f]/5 to-transparent rounded-[60%_40%_30%_70%/60%_30%_70%_40%] animate-morph" />
+        </div>
+        
+        {/* Floating tomato accent */}
+        <div className={`absolute top-[30%] ${isRTL ? 'right-[5%]' : 'left-[5%]'}`}>
+          <div className="w-16 h-16 bg-gradient-to-br from-[#ff6b6b]/20 to-[#c1121f]/10 rounded-full animate-float-slow shadow-lg shadow-red-500/10">
+            <div className="absolute top-1 left-1/2 -translate-x-1/2 w-3 h-2 bg-[#2d6a4f]/30 rounded-t-full" />
+          </div>
+        </div>
+        
+        {/* Small decorative dots */}
+        <div className={`absolute bottom-[20%] w-4 h-4 bg-[#e63946]/15 rounded-full animate-pulse-slow ${isRTL ? 'left-[12%]' : 'right-[12%]'}`} />
+        <div className={`absolute top-[50%] w-3 h-3 bg-[#ff6b6b]/20 rounded-full animate-float ${isRTL ? 'left-[8%]' : 'right-[8%]'}`} />
+        
+        {/* Drip accent */}
+        <div className={`absolute top-[60%] ${isRTL ? 'right-[3%]' : 'left-[3%]'}`}>
+          <div className="w-6 h-12 bg-gradient-to-b from-[#e63946]/15 to-[#c1121f]/5 rounded-b-full animate-drip-1" />
+        </div>
+      </div>
+      <div className="flex justify-center relative z-10">
         <div className="flex flex-col max-w-[1024px] w-full px-6 lg:px-10">
           {/* Header */}
           <div className="flex flex-col items-center text-center gap-4 mb-20">
@@ -46,7 +70,7 @@ export default function ProcessSection() {
 
           {/* Timeline */}
           <div className="relative flex flex-col items-center">
-            <div className="absolute start-[20px] md:start-1/2 top-0 h-full w-[2px] bg-[#1A1A1A]/10 dark:bg-white/10 -translate-x-1/2 rtl:translate-x-1/2 timeline-line overflow-hidden rounded-full"></div>
+            <div className="absolute start-[20px] md:start-1/2 top-0 h-full w-[2px] bg-gradient-to-b from-[#13ec5b]/30 via-[#0fd650]/20 to-[#13ec5b]/30 -translate-x-1/2 rtl:translate-x-1/2 overflow-hidden rounded-full"></div>
 
             {steps.map((step, index) => (
               <div
